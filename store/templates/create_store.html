@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Store Creation{% endblock %}
+
+{% block content %}
+<style>
+    .errorlist{
+        color: red;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3>Store Creation Form</h3><hr>
+            <form action="" method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary">open store</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
