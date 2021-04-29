@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import *
 
@@ -11,7 +11,16 @@ def createStore(request):
             form.save()
             store = form.cleaned_data.get('name')
             messages.success(request, 'store was opened')
-            return redirect('discover:home')
+            return redirect('user_dashboard:stores')
 
     context = {'form':form}
     return render(request, 'create_store.html', context)
+
+
+#get specific store by Id
+def store(request, store_id):
+    store = get_object_or_404(Store, pk=store_id)
+    context = {
+        'store' : store
+    }
+    return render(request, 'store_dashboard.html', context)

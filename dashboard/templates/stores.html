@@ -86,8 +86,8 @@
             <tbody>
               {% for store in stores%}
               <tr >
-                <td class="py-3"><a class="nav-link-style fw-medium fs-sm" href="#" data-bs-toggle="modal">{{store.id}}</a></td>
-                <td class="py-3"> <a href="#">{{store.name}}</a></td>
+                <td class="py-3"><a class="nav-link-style fw-medium fs-sm" href="{% url 'store:store_dashboard' store.id %}" data-bs-toggle="modal">{{store.id}}</a></td>
+                <td class="py-3"> <a href="{% url 'store:store_dashboard' store.id %}">{{store.name}}</a></td>
                 <td class="py-3"><span class="badge bg-info m-0">{{store.create_date}}</span></td>
                 <td class="py-3">{{store.owner}}</td>
                 <td class="py-3"><span class="badge bg-success m-0">Verified</span></td>
