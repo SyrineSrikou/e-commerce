@@ -15,3 +15,4 @@ def createStore(request):
 
     context = {'form':form}
     return render(request, 'create_store.html', context)
+
