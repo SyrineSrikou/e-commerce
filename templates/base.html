@@ -19,6 +19,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="/static/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="/static/css/main.css">
   
 
   </head>
@@ -103,7 +104,7 @@
                       <a class="dropdown-item d-flex align-items-center" href="#"><i class="ci-settings opacity-60 me-2"></i>Profile</a>
                       <a class="dropdown-item d-flex align-items-center" href="#"><i class="ci-basket opacity-60 me-2"></i>Orders</a>
                       <a class="dropdown-item d-flex align-items-center" href="{% url 'authentication:logout' %}"><i class="ci-sign-out opacity-60 me-2"></i>Logout</a>
-                      <a class="dropdown-item d-flex align-items-center" href="#"><i class="ci-store opacity-60 me-2"></i> Become vendor</a>
+                      <a class="dropdown-item d-flex align-items-center" href="{% url 'store:create_store' %}"><i class="ci-store opacity-60 me-2"></i> Become vendor</a>
                     </div>
                      
                 </div>
@@ -116,10 +117,10 @@
 
                 <!-- Cart dropdown-->
                 <div class="dropdown-menu dropdown-menu-end">
-                  <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 20rem;">
-                    <div style="height: 15rem;" data-simplebar data-simplebar-auto-hide="false">
+                  <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 13rem;">
+                    <div style="height: 2rem;">
                     {% if cart_objects|length == 0 %}
-                      <div class="widget-cart-item pb-2 border-bottom">
+                      <div >
                         <p>your cart is empty</p>
                       </div> 
                     {% else %}
@@ -135,11 +136,11 @@
                         </div>
                       </div>
                       {% endfor %}
+                      <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                        <div class="fs-sm me-2 py-2"><span>Subtotal:</span>{{cart.total}} TND</div><a class="btn btn-outline-secondary btn-sm" href="#" >Expand cart<i class="ci-arrow-right ms-1 me-n1"></i></a>
+                      </div><a class="btn btn-primary btn-sm d-block w-100" href="#"><i class="ci-card me-2 fs-base align-middle"></i>Checkout</a>
                     {%endif%}
                     </div>
-                    <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
-                      <div class="fs-sm me-2 py-2"><span>Subtotal:</span>{{cart.total}} TND</div><a class="btn btn-outline-secondary btn-sm" href="#" >Expand cart<i class="ci-arrow-right ms-1 me-n1"></i></a>
-                    </div><a class="btn btn-primary btn-sm d-block w-100" href="#"><i class="ci-card me-2 fs-base align-middle"></i>Checkout</a>
                   </div>
                 </div>
               </div>
